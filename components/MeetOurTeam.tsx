@@ -14,29 +14,29 @@ const MeetOurTeam: React.FC = () => {
   const teamMembers = [
     {
       id: 'member1',
-      name: t.team?.member1?.name || 'Ah Keong',
+      name: t.team?.member1?.name || 'Mike',
       role: t.team?.member1?.role || 'Senior CCTV & AI Vision Lead',
       exp: t.team?.member1?.exp || '14+ Years Experience',
       bio: t.team?.member1?.bio || 'Certified IP-Camera expert specializing in H.265+ NVR server setups, fiber-optic splicing, and smart AI facial recognition systems.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400',
+      image: '/images/team-mike.jpg.jpg',
       skills: language === 'en' 
         ? ['CCTV & NVR Server', 'Optical Splicing', 'AI face ID', 'Multi-Floor Matrix'] 
         : language === 'zh'
         ? ['4K 极速监控组网', '光纤冷接熔接', 'AI 刷脸识音', '多层楼宇安防']
         : ['Server CCTV NVR', 'Splicing Gentian Optik', 'Pengecaman Wajah AI', 'Matriks Multi-Aras'],
       whatsappMsg: language === 'en'
-        ? 'Hello Ah Keong, I have a query about setting up an AI CCTV camera network or routine CCTV diagnostic service.'
+        ? 'Hello Mike, I have a query about setting up an AI CCTV camera network or routine CCTV diagnostic service.'
         : language === 'zh'
-        ? '阿强师傅您好，我想向您咨询关于 4K AI 智能监控组网与摄像机镜头校准维护方案。'
-        : 'Halo Ah Keong, saya ingin bertanya tentang persediaan rangkaian kamera CCTV AI atau ujian diagnostik CCTV rutin.'
+        ? 'Mike 师傅您好，我想向您咨询关于 4K AI 智能监控组网与摄像机镜头校准维护方案。'
+        : 'Halo Mike, saya ingin bertanya tentang persediaan rangkaian kamera CCTV AI atau ujian diagnostik CCTV rutin.'
     },
     {
       id: 'member2',
-      name: t.team?.member2?.name || 'Rizal Bin Osman',
+      name: t.team?.member2?.name || 'Amir',
       role: t.team?.member2?.role || 'Mechanical Autogate & Power Engineer',
       exp: t.team?.member2?.exp || '11+ Years Experience',
       bio: t.team?.member2?.bio || 'Suruhanjaya Tenaga (ST) certified competency wireman. Master of heavy autogate motor calibration, 3-phase high-voltage db board wiring, and smart backup batteries.',
-      image: 'https://images.unsplash.com/photo-1540569014015-19a7be504e3a?auto=format&fit=crop&q=80&w=400&h=400',
+      image: '/images/team-amir.jpg.jpg',
       badge: 'ST CERTIFIED',
       skills: language === 'en' 
         ? ['ST Certified', '3-Phase Wiring DB', 'Autogate Motor', 'Lightning Arrestors'] 
@@ -44,28 +44,28 @@ const MeetOurTeam: React.FC = () => {
         ? ['马来西亚ST能源局执照', '3相强电配电盘', '自动折叠门机头轴承', '防雷地线网络']
         : ['Bertauliah ST', 'Pendawaian DB 3-Fasa', 'Motor Gerbang Autogate', 'Penangkap Kilat'],
       whatsappMsg: language === 'en'
-        ? 'Hello Rizal, I would like to consult you regarding 3-Phase power board upgrades or automatic sliding autogate motor repair.'
+        ? 'Hello Amir, I would like to consult you regarding 3-Phase power board upgrades or automatic sliding autogate motor repair.'
         : language === 'zh'
-        ? 'Rizal 工程师您好，我想了解关于 3-Phase 三相强电大配电箱升级、或折叠无轨自动门电机校正调试。'
-        : 'Halo Rizal, saya ingin berunding mengenai naik taraf papan kuasa 3-Fasa atau pembaikan motor autogate gelongsor.'
+        ? 'Amir 工程师您好，我想了解关于 3-Phase 三相强电大配电箱升级、或折叠无轨自动门电机校正调试。'
+        : 'Halo Amir, saya ingin berunding mengenai naik taraf papan kuasa 3-Fasa atau pembaikan motor autogate gelongsor.'
     },
     {
       id: 'member3',
-      name: t.team?.member3?.name || 'Bala Subramaniam',
+      name: t.team?.member3?.name || 'Ami',
       role: t.team?.member3?.role || 'Access Control & Network Specialist',
       exp: t.team?.member3?.exp || '9+ Years Experience',
       bio: t.team?.member3?.bio || 'Local network infrastructure guru. Specialist in biometrics, high-strength magnetic smart lock hardware integrations, and cloud mobile synchronized configurations.',
-      image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&h=400',
+      image: '/images/team-ami.jpg.jpg',
       skills: language === 'en' 
         ? ['Fingerprint & Face ID', 'Magnetic Smart Locks', 'WiFi Bridge Routing', 'Mobile App Sync'] 
         : language === 'zh'
         ? ['面部/指纹识别一体机', '千磅超强磁力锁扣', '远距离微波网桥', '云端APP实时同步']
         : ['Face ID & Cap Jari', 'Kunci Magnetik Pintar', 'Jambatan Wayarles WiFi', 'Segerak App Telefon'],
       whatsappMsg: language === 'en'
-        ? 'Hello Bala, I need a consultation on smart biometric access control systems, magnetic locks, or multi-terminal synchronizations.'
+        ? 'Hello Ami, I need a consultation on smart biometric access control systems, magnetic locks, or multi-terminal synchronizations.'
         : language === 'zh'
-        ? 'Bala 师傅您好，我想咨询关于生物识别面部指纹门禁考勤吸力锁、以及手机APP报警联动同步配置。'
-        : 'Halo Bala, saya ingin berunding mengenai kawalan akses biometrik pintar, kunci magnetik, atau penyegerakan aplikasi awan.'
+        ? 'Ami 师傅您好，我想咨询关于生物识别面部指纹门禁考勤吸力锁、以及手机APP报警联动同步配置。'
+        : 'Halo Ami, saya ingin berunding mengenai kawalan akses biometrik pintar, kunci magnetik, atau penyegerakan aplikasi awan.'
     }
   ];
 

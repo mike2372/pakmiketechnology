@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
           <div className="relative hidden lg:block animate-in fade-in zoom-in-95 duration-1000">
             <div className="relative z-10 rounded-[40px] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] border-[12px] border-white">
               <img 
-                src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=1200" 
+                src="/images/hero.jpg.jpg" 
                 alt="Modern Tech Office" 
                 className="w-full h-[600px] object-cover"
               />

@@ -14,7 +14,7 @@ const About: React.FC = () => {
           <div className="lg:w-1/2 relative">
             <div className="relative z-10 rounded-[40px] overflow-hidden shadow-2xl border-[8px] border-gray-50">
               <img 
-                src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1000" 
+                src="/images/about.jpg" 
                 alt="Engineering Precision" 
                 className="w-full h-full object-cover"
               />

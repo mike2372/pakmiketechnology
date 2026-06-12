@@ -100,7 +100,7 @@ const ServiceRequestForm: React.FC = () => {
           description: 'Routine 6-month lens cleaning and firmware security patching for 16-channel Hikvision NVR dome cameras in industrial retail unit.',
           prefDate: '2026-06-05',
           status: 'completed',
-          technicianName: 'Ah Keong (Senior CCTV Specialist)',
+          technicianName: 'Mike (Senior CCTV Specialist)',
           createdAt: '2026-06-04'
         },
         {
@@ -114,7 +114,7 @@ const ServiceRequestForm: React.FC = () => {
           description: 'Secondary automatic sliding arm motor stuck during wet rain. Left wing bracket is vibrating and requires recalibration and oil grease lubrication.',
           prefDate: '2026-06-12',
           status: 'assigned',
-          technicianName: 'Rizal Bin Osman (Mechanical Team Lead)',
+          technicianName: 'Amir (Mechanical Team Lead)',
           createdAt: '2026-06-11'
         }
       ];
@@ -394,9 +394,9 @@ const ServiceRequestForm: React.FC = () => {
     
     // Choose local Malaysian technician based on priority/system randomly to simulate real response
     const technicianPool = [
-      'Ah Keong (Senior CCTV Specialist)', 
-      'Rizal Bin Osman (AutoGate & Power Engineer)', 
-      'Bala Subramaniam (Access Network Specialist)'
+      'Mike (Senior CCTV Specialist)', 
+      'Amir (AutoGate & Power Engineer)', 
+      'Ami (Access Network Specialist)'
     ];
     const randomizedTech = technicianPool[Math.floor(Math.random() * technicianPool.length)];
 
@@ -1141,7 +1141,7 @@ _Logged via Pakmike Tech Client Support Portal_`;
                                       return {
                                         ...tok, 
                                         status: 'assigned' as const,
-                                        technicianName: 'Ah Keong (Senior CCTV Specialist)'
+                                        technicianName: 'Mike (Senior CCTV Specialist)'
                                       };
                                     }
                                     return tok;

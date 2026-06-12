@@ -15,42 +15,42 @@ const ProjectGallery: React.FC = () => {
       id: 1,
       title: t.gallery.projects.p1_title,
       category: 'cctv',
-      image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800',
+      image: '/images/Caltex station surveillance system.WEBP.webp',
       desc: t.gallery.projects.p1_desc
     },
     {
       id: 2,
       title: t.gallery.projects.p2_title,
       category: 'autogate',
-      image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800',
+      image: '/images/dcmoto.webp',
       desc: t.gallery.projects.p2_desc
     },
     {
       id: 3,
       title: t.gallery.projects.p3_title,
       category: 'access',
-      image: 'https://images.unsplash.com/photo-1555532538-dcdbd01d373d?auto=format&fit=crop&q=80&w=800',
+      image: '/images/Hikvision Biometric access control system.jpg',
       desc: t.gallery.projects.p3_desc
     },
     {
       id: 4,
       title: t.gallery.projects.p4_title,
       category: 'wiring',
-      image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800',
+      image: '/images/caltex stations electrical works.png',
       desc: t.gallery.projects.p4_desc
     },
     {
       id: 5,
       title: t.gallery.projects.p5_title,
       category: 'cctv',
-      image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=800',
+      image: '/images/Smart Ai Homeoffice security.jpg',
       desc: t.gallery.projects.p5_desc
     },
     {
       id: 6,
       title: t.gallery.projects.p6_title,
       category: 'wiring',
-      image: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800',
+      image: '/images/retail store security system.jpg',
       desc: t.gallery.projects.p6_desc
     }
   ];

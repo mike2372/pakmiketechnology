@@ -59,7 +59,7 @@ const TechInsights: React.FC = () => {
       category: t.techInsights?.art1?.category || 'CCTV & Vision',
       date: t.techInsights?.art1?.date || 'June 10, 2026',
       time: t.techInsights?.art1?.time || '4',
-      author: 'Ah Keong',
+      author: 'Mike',
       icon: <Cpu className="text-cyan-500" size={18} />,
       tags: language === 'en' 
         ? ['Weatherproofing', 'Maintenance', 'IP66 Rated'] 
@@ -75,7 +75,7 @@ const TechInsights: React.FC = () => {
       category: t.techInsights?.art2?.category || 'Power Standards',
       date: t.techInsights?.art2?.date || 'June 02, 2026',
       time: t.techInsights?.art2?.time || '5',
-      author: 'Rizal Bin Osman',
+      author: 'Amir',
       icon: <Zap className="text-amber-500" size={18} />,
       tags: language === 'en'
         ? ['Energy Commission', 'ST Regulations', '3-Phase Grid']
@@ -91,7 +91,7 @@ const TechInsights: React.FC = () => {
       category: t.techInsights?.art3?.category || 'Access Systems',
       date: t.techInsights?.art3?.date || 'May 28, 2026',
       time: t.techInsights?.art3?.time || '4',
-      author: 'Bala Subramaniam',
+      author: 'Ami',
       icon: <Key className="text-indigo-500" size={18} />,
       tags: language === 'en'
         ? ['Access Control', 'RFID Swipes', 'Biometric Locks']

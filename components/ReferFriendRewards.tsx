@@ -177,7 +177,7 @@ const ReferFriendRewards: React.FC = () => {
                     </div>
                     <div>
                       <h4 className="text-sm font-black text-slate-100 leading-tight mb-1">
-                        Lock in with Ah Keong
+                        Lock in with Mike
                       </h4>
                       <p className="text-slate-400 text-xs font-medium leading-relaxed">
                         Send the generated card via WhatsApp to store the rebate code in our master registry.

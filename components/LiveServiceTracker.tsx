@@ -68,7 +68,7 @@ const LiveServiceTracker: React.FC = () => {
       description: 'Factory CCTV power supplies got blown out during the thunderstorm last night. Urgent site assessment is needed to wire robust spike arresters.',
       prefDate: '2026-06-12',
       status: 'assigned' as const, // Maps to 'On Site'
-      technicianName: 'Ah Keong (Senior CCTV Specialist)',
+      technicianName: 'Mike (Senior CCTV Specialist)',
       createdAt: '2026-06-11'
     },
     {
@@ -594,7 +594,7 @@ const LiveServiceTracker: React.FC = () => {
                     </span>
                     <span className="text-sm font-black text-white flex items-center gap-1.5 mt-1">
                       <User size={14} className="text-cyan-400 shrink-0" />
-                      {searchedJob.technicianName || 'Ah Keong (Senior CCTV Specialist)'}
+                      {searchedJob.technicianName || 'Mike (Senior CCTV Specialist)'}
                     </span>
                   </div>
 
