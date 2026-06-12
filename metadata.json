@@ -1,0 +1,10 @@
+{
+  "name": "Remix: Pakmike Technology - Security \u0026 Electrical Solutions",
+  "description": "Professional one-stop solution for Electrical Wiring, CCTV, Alarm Systems, HR Attendance, and Biometric Door Access in Penang and Prai.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
