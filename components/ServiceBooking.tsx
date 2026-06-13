@@ -696,9 +696,9 @@ const ServiceBooking: React.FC = () => {
                 <div className="pt-6 border-t border-gray-150">
                   <button
                     type="submit"
-                    className="w-full py-4 bg-linear-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-black text-xs uppercase tracking-widest rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-cyan-600/10 cursor-pointer transition-all pointer-events-auto hover:translate-y-[-1px]"
+                    className="w-full py-4 bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-white font-black text-sm uppercase tracking-normal rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-cyan-600/10 cursor-pointer transition-all pointer-events-auto hover:translate-y-[-1px]"
                   >
-                    <CalendarIcon size={13} />
+                    <CalendarIcon size={16} />
                     <span>{b.btnBook}</span>
                   </button>
                 </div>
