@@ -32,9 +32,11 @@ const App: React.FC = () => {
       <div className="min-h-screen bg-white">
         <Navbar />
         <Hero />
+        <About />
+        <ProjectGallery />
+        <MeetOurTeam />
         <PromoBanner />
         <Services />
-        <ProjectGallery />
         <ServiceCalculator />
         <ProjectTimeline />
         <CoverageMap />
@@ -43,8 +45,6 @@ const App: React.FC = () => {
         <ServiceBooking />
         <LiveServiceTracker />
         <CategoryQRGenerator />
-        <About />
-        <MeetOurTeam />
         <TechInsights />
         <Testimonials />
         <FAQ />
