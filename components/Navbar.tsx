@@ -33,9 +33,8 @@ const Navbar: React.FC = () => {
             <a href="#projects" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.projects}</a>
             <a href="#project-timeline" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.process}</a>
             <a href="#service-request" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.support}</a>
-            <a href="#tech-insights" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.insights}</a>
-            <a href="#ai-editor" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.aiLab}</a>
             <a href="#about" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.about}</a>
+            <a href="https://hdcctvs.blogspot.com" target="_blank" rel="noopener noreferrer" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.blog}</a>
             
             {/* Elegant 3-way language select pill */}
             <div className={`flex items-center gap-1 rounded-full p-0.5 border transition-all duration-300 ${
@@ -136,9 +135,8 @@ const Navbar: React.FC = () => {
             <a href="#projects" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.projects}</a>
             <a href="#project-timeline" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.process}</a>
             <a href="#service-request" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.support}</a>
-            <a href="#tech-insights" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.insights}</a>
-            <a href="#ai-editor" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.aiLab}</a>
             <a href="#about" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.about}</a>
+            <a href="https://blogspot.com" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.blog}</a>
             <a href="#contact" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-cyan-500 text-xl font-black w-full">{t.nav.contact}</a>
           </div>
         </div>
