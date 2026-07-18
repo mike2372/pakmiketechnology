@@ -34,7 +34,9 @@ const Navbar: React.FC = () => {
             <a href="#project-timeline" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.process}</a>
             <a href="#service-request" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.support}</a>
             <a href="#about" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.about}</a>
-            <a href="https://hdcctvs.blogspot.com" target="_blank" rel="noopener noreferrer" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.blog}</a>
+            <a href="https://blogspot.com" target="_blank" rel="noopener noreferrer" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}{t.nav.blog}
+</a>
+
             
             {/* Elegant 3-way language select pill */}
             <div className={`flex items-center gap-1 rounded-full p-0.5 border transition-all duration-300 ${
