@@ -19,7 +19,6 @@ import {
   MessageSquare,
   Sparkles,
   Search,
-  Tool,
   Camera,
   Upload,
   Image,
@@ -347,7 +346,7 @@ const ServiceRequestForm: React.FC = () => {
     if (!files) return;
 
     const remainingSlots = 4 - photos.length;
-    const filesToProcess = Array.from(files).slice(0, remainingSlots);
+    const filesToProcess = Array.from(files).slice(0, remainingSlots) as File[];
 
     if (files.length > remainingSlots) {
       alert(
