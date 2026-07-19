@@ -138,7 +138,7 @@ const Navbar: React.FC = () => {
             <a href="#project-timeline" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.process}</a>
             <a href="#service-request" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.support}</a>
             <a href="#about" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.about}</a>
-            <a href="https://blogspot.com" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.blog}</a>
+            <a href="https://hdcctvs.blogspot.com" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.blog}</a>
             <a href="#contact" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-cyan-500 text-xl font-black w-full">{t.nav.contact}</a>
           </div>
         </div>
