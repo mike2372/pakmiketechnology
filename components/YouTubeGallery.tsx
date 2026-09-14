@@ -6,7 +6,7 @@ import { extractYouTubeVideoId, getThumbnailUrl, getEmbedUrl, Video } from '../u
 const VIDEOS: Video[] = [
   {
     id: '1',
-    title: 'Pillar Seal Solution (M) Malaysia.Desfire Standalone System',
+    title: 'Pillar Seal Solution (M) Malaysia.Deployment Of Desfire Standalone System',
     description: 'These terminals use advanced encryption to prevent card cloning and unauthorized entry.',
     youtubeUrl: 'https://www.youtube.com/shorts/qMoRDRjB-hg'
   },
@@ -18,13 +18,13 @@ const VIDEOS: Video[] = [
   },
   {
     id: '3',
-    title: 'Caltex petrol Station Lunas',
-    description: 'Explore advanced React patterns and component architecture.',
+    title: 'Project HD Cctv For Caltex petrol Station Lunas',
+    description: 'Deployment Of Hikvision Advanced 6MP Ip Network Cameras.',
     youtubeUrl: 'https://www.youtube.com/watch?v=oWQ66PKZfnM'
   },
   {
     id: '4',
-    title: 'EZVIZ TY1 Pro 4MP',
+    title: 'Deployment Of EZVIZ TY1 Pro 4MP For J & J Academic Centre',
     description: 'It features a 2560 x1440 resolution, delivering sharp 2K+ video quality that allows for clearer detail than standard 1080p models.Dual-Band Connectivity..',
     youtubeUrl: 'https://www.youtube.com/shorts/8U3wutCoDeI'
   },
@@ -37,7 +37,7 @@ const VIDEOS: Video[] = [
   {
     id: '6',
     title: 'Genius Mind Academy (GMA) Memoschool ',
-    description: 'Introduction to DevOps practices and CI/CD pipelines.',
+    description: 'Deployment Of Hikvision Audio cameras.',
     youtubeUrl: 'https://www.youtube.com/watch?v=z0WQpgBjiXg'
   }
 ];
