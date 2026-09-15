@@ -30,9 +30,9 @@ const VIDEOS: Video[] = [
   },
   {
     id: '5',
-    title: 'Performance Optimization',
-    description: 'Techniques to optimize your web application performance.',
-    youtubeUrl: 'https://youtu.be/v=w5vGk8DqZw'
+    title: 'Hikvision Slim Outdoor Access Terminal',
+    description: 'Deployment Of Outdoor Access Terminal For WonWay Manufaccturing S/B',
+    youtubeUrl: 'https://youtube.com/shorts/vn2-JMI7N8s'
   },
   {
     id: '6',
