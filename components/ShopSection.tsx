@@ -31,6 +31,20 @@ export const ShopSection: React.FC = () => {
         )}
       </button>
 
+      {/* Fixed Floating Cart Button - mobile only, bottom-right to avoid navbar overlap */}
+      <button
+        onClick={() => setIsCartOpen(true)}
+        className="md:hidden fixed bottom-6 right-6 z-50 flex p-3 bg-white text-cyan-600 rounded-full hover:bg-cyan-50 transition-all shadow-lg hover:shadow-xl border-2 border-cyan-600"
+        aria-label="Open cart"
+      >
+        <ShoppingCart className="w-6 h-6" />
+        {getCartItemCount() > 0 && (
+          <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] rounded-full w-5 h-5 flex items-center justify-center font-bold border-2 border-white">
+            {getCartItemCount()}
+          </span>
+        )}
+      </button>
+
       {/* Section Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <div>
