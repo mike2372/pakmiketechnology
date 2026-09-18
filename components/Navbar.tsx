@@ -1,13 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Globe } from 'lucide-react';
+import { Menu, X, Phone, Globe, ShoppingCart } from 'lucide-react';
 import { CONTACT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { useCart } from '../context/CartContext';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const { getCartItemCount } = useCart();
+  const [, setMobileCartOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -121,6 +124,23 @@ const Navbar: React.FC = () => {
               </button>
             </div>
             
+            {/* Mobile Cart Button */}
+            <button
+              onClick={() => {
+                const shopSection = document.getElementById('shop');
+                if (shopSection) shopSection.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className={`relative p-2 rounded-full ${scrolled ? 'text-gray-900' : 'text-white'}`}
+              aria-label="Open cart"
+            >
+              <ShoppingCart size={24} />
+              {getCartItemCount() > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 bg-red-500 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-bold border border-white">
+                  {getCartItemCount()}
+                </span>
+              )}
+            </button>
+
             <button onClick={() => setIsOpen(!isOpen)} className={`${scrolled ? 'text-gray-900' : 'text-white'}`}>
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>

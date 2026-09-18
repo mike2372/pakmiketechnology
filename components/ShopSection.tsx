@@ -18,10 +18,10 @@ export const ShopSection: React.FC = () => {
 
   return (
     <>
-      {/* Fixed Floating Cart Button */}
+      {/* Fixed Floating Cart Button - desktop only, hidden on mobile to avoid overlapping hamburger menu */}
       <button
         onClick={() => setIsCartOpen(true)}
-        className="fixed top-4 right-4 z-50 p-4 bg-white text-cyan-600 rounded-full hover:bg-cyan-50 transition-all shadow-lg hover:shadow-xl border-2 border-cyan-600"
+        className="hidden md:flex fixed top-4 right-4 z-50 p-4 bg-white text-cyan-600 rounded-full hover:bg-cyan-50 transition-all shadow-lg hover:shadow-xl border-2 border-cyan-600"
       >
         <ShoppingCart className="w-6 h-6" />
         {getCartItemCount() > 0 && (
