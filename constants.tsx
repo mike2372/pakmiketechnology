@@ -8,7 +8,7 @@ import {
   Settings, 
   Video 
 } from 'lucide-react';
-import { ServiceItem, ContactInfo, Language } from './types';
+import { ServiceItem, ContactInfo, Language, CartItem, Product } from './types';
 
 export const getServices = (lang: Language): ServiceItem[] => {
   if (lang === 'zh') {
@@ -96,6 +96,16 @@ export const CONTACT: ContactInfo = {
   facebook: 'https://www.facebook.com/myintsolutions',
   youtube: 'https://www.youtube.com/@Penangthecctvguy'
 };
+
+export const MOCK_PRODUCTS: Product[] = [
+  {
+    id: 'ds-k1t323-face-recognition',
+    name: 'DS-k1T323 Series Face Recognition Terminal',
+    price: 460.00,
+    description: '2.4" LCD Touchscreen Display. IP65 Weatherproof Rating. Fast & Secure Face Recognition. Fingerprint & Mifare Card Support. Reliable Value Series Performance.',
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXdozt9DTR9JkbDAUH1LeVCRgiChbrxEJuVFljPbkPsIJz1u2Ikg8Psb8cva4NzRrCGx-PF0I3OtAV0H-z7PBT3X11NhO6R3L0xU8H1IEJL6Pi8FwoHH5DlqihKf62cq2HLsIEJ2TYEJ_WcFxNpEQqAq5apvquJth8HIc4dK9IaCa6aSHs_pHNR-_CVUk/s1280-rw/maxresdefault.jpg'
+  }
+];
 
 export const getIcon = (name: string) => {
   switch (name) {

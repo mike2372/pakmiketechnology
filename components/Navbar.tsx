@@ -34,6 +34,7 @@ const Navbar: React.FC = () => {
             <a href="#project-timeline" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.process}</a>
             <a href="#service-request" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.support}</a>
             <a href="#about" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.about}</a>
+            <a href="#shop" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.shop}</a>
             <a href="https://hdcctvs.blogspot.com" target="_blank" rel="noopener noreferrer" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.blog}</a>
 
             
@@ -137,6 +138,7 @@ const Navbar: React.FC = () => {
             <a href="#project-timeline" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.process}</a>
             <a href="#service-request" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.support}</a>
             <a href="#about" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.about}</a>
+            <a href="#shop" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.shop}</a>
             <a href="https://hdcctvs.blogspot.com" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.blog}</a>
             <a href="#contact" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-cyan-500 text-xl font-black w-full">{t.nav.contact}</a>
           </div>

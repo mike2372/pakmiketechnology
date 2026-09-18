@@ -12,6 +12,7 @@ export const translations = {
       about: 'The Story',
       contact: 'Call Now',
       blog: 'Blog & completed projects',
+      shop: 'Shop',
     },
     hero: {
       badge: "Penang's #1 Technical Solution",
@@ -391,6 +392,7 @@ export const translations = {
       about: '关于我们',
       contact: '立即致电',
       blog: '博客与完工项目',
+      shop: '商店',
     },
     hero: {
       badge: "槟城第一技术解决方案",
@@ -770,6 +772,7 @@ export const translations = {
       about: 'Kisah Kami',
       contact: 'Hubungi Segera',
       blog: 'Blog & projek siap',
+      shop: 'Kedai',
     },
     hero: {
       badge: "Penyelesaian Teknikal #1 Pulau Pinang",

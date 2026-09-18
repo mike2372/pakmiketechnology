@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -15,26 +14,56 @@ import WhatsAppButton from './components/WhatsAppButton';
 import Footer from './components/Footer';
 import YouTubeGallery from './components/YouTubeGallery';
 import { LanguageProvider } from './context/LanguageContext';
+import { CartProvider } from './context/CartContext';
+import { ShopSection } from './components/ShopSection';
+import { PaymentSuccess } from './components/PaymentSuccess';
 
 const App: React.FC = () => {
+  const [isPaymentSuccess, setIsPaymentSuccess] = useState(false);
+  const [orderRef, setOrderRef] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Check if returning from ToyyibPay with a success status
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('status_id') === '1') {
+      setIsPaymentSuccess(true);
+      setOrderRef(params.get('orderRef'));
+    }
+  }, []);
+
+  const handleContinueShopping = () => {
+    // Clear URL parameters and return to normal view
+    window.history.replaceState({}, document.title, window.location.pathname);
+    setIsPaymentSuccess(false);
+  };
+
+  if (isPaymentSuccess) {
+    return <PaymentSuccess orderRef={orderRef} onContinueShopping={handleContinueShopping} />;
+  }
+
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-white">
-        <Navbar />
-        <Hero />
-        <About />
-        <ProjectGallery />
-        <MeetOurTeam />
-        <Services />
-        <ProjectTimeline />
-        <YouTubeGallery />
-        <Testimonials />
-        <FAQ />
-        <Contact />
-        <Footer />
-        <ChatBot />
-        <WhatsAppButton />
-      </div>
+      <CartProvider>
+        <div className="min-h-screen bg-white">
+          <Navbar />
+          <Hero />
+          <About />
+          <ProjectGallery />
+          <MeetOurTeam />
+          <Services />
+          <ProjectTimeline />
+          <YouTubeGallery />
+          <Testimonials />
+          <FAQ />
+          <Contact />
+          <section id="shop" className="py-16 bg-gray-50">
+            <ShopSection />
+          </section>
+          <Footer />
+          <ChatBot />
+          <WhatsAppButton />
+        </div>
+      </CartProvider>
     </LanguageProvider>
   );
 };

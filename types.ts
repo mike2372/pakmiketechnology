@@ -21,3 +21,31 @@ export interface ContactInfo {
   facebook: string;
   youtube: string;
 }
+
+export interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+  image?: string;
+  description?: string;
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  image?: string;
+}
+
+export type FulfillmentMethod = 'standard_courier' | 'self_pickup' | 'direct_installer';
+
+export interface CheckoutData {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  fulfillmentMethod: FulfillmentMethod;
+  postcode?: string;
+}
