@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
-  const { getCartItemCount } = useCart();
+  const { getCartItemCount, openCart } = useCart();
   const [, setMobileCartOpen] = useState(false);
 
   useEffect(() => {
@@ -127,6 +127,7 @@ const Navbar: React.FC = () => {
             {/* Mobile Cart Button */}
             <button
               onClick={() => {
+                openCart();
                 const shopSection = document.getElementById('shop');
                 if (shopSection) shopSection.scrollIntoView({ behavior: 'smooth' });
               }}

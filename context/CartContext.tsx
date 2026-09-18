@@ -3,10 +3,14 @@ import { CartItem } from '../types';
 
 interface CartContextType {
   cart: CartItem[];
+  isCartOpen: boolean;
   addToCart: (item: Omit<CartItem, 'quantity'>) => void;
   removeFromCart: (itemId: string) => void;
   updateQuantity: (itemId: string, quantity: number) => void;
   clearCart: () => void;
+  openCart: () => void;
+  closeCart: () => void;
+  toggleCart: () => void;
   getCartSubtotal: () => number;
   getCartTotal: () => number;
   getCartItemCount: () => number;
@@ -38,6 +42,7 @@ const saveCartToStorage = (cart: CartItem[]) => {
 
 export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
@@ -89,6 +94,18 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     setCart([]);
   };
 
+  const openCart = () => {
+    setIsCartOpen(true);
+  };
+
+  const closeCart = () => {
+    setIsCartOpen(false);
+  };
+
+  const toggleCart = () => {
+    setIsCartOpen(prev => !prev);
+  };
+
   const getCartSubtotal = () => {
     return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
@@ -103,10 +120,14 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const value: CartContextType = {
     cart,
+    isCartOpen,
     addToCart,
     removeFromCart,
     updateQuantity,
     clearCart,
+    openCart,
+    closeCart,
+    toggleCart,
     getCartSubtotal,
     getCartTotal,
     getCartItemCount,

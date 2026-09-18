@@ -7,9 +7,8 @@ import { CheckoutData } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const ShopPage: React.FC = () => {
-  const { cart, getCartSubtotal, getCartItemCount, clearCart } = useCart();
+  const { cart, isCartOpen, openCart, closeCart, getCartSubtotal, getCartItemCount, clearCart } = useCart();
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const handleCheckout = async (data: CheckoutData) => {
     console.log('Checkout data:', data);
@@ -29,7 +28,7 @@ export const ShopPage: React.FC = () => {
             
             {/* Cart Button */}
             <button
-              onClick={() => setIsCartOpen(true)}
+              onClick={openCart}
               className="relative p-3 bg-cyan-600 text-white rounded-full hover:bg-cyan-700 transition-colors shadow-lg"
             >
               <ShoppingCart className="w-6 h-6" />
@@ -59,21 +58,21 @@ export const ShopPage: React.FC = () => {
           >
             <div 
               className="absolute inset-0 bg-black bg-opacity-50"
-              onClick={() => setIsCartOpen(false)}
+              onClick={closeCart}
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-xl"
+              className="absolute right-0 top-0 h-[100dvh] h-screen w-full max-w-md bg-white shadow-xl"
             >
-              <div className="flex flex-col h-full">
+              <div className="flex flex-col h-full min-h-0">
                 {/* Cart Header */}
                 <div className="flex items-center justify-between p-4 border-b">
                   <h2 className="text-xl font-bold">Shopping Cart ({getCartItemCount()})</h2>
                   <button
-                    onClick={() => setIsCartOpen(false)}
+                    onClick={closeCart}
                     className="p-2 hover:bg-gray-100 rounded-full"
                   >
                     <X className="w-5 h-5" />
@@ -121,7 +120,7 @@ export const ShopPage: React.FC = () => {
                     </div>
                     <button
                       onClick={() => {
-                        setIsCartOpen(false);
+                        closeCart();
                         setIsCheckoutOpen(true);
                       }}
                       className="w-full bg-cyan-600 text-white py-3 rounded-lg font-semibold hover:bg-cyan-700 transition-colors"
