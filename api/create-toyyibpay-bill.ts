@@ -39,7 +39,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Generate a unique order reference
     const orderRef = `ORD-${Date.now()}`;
-    const description = `Order Payment - ${orderRef}`;
+    const description = `Payment-${orderRef}`;
 
     const formData = new URLSearchParams();
     formData.append('userSecretKey', secretKey);
@@ -86,6 +86,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const responseData = await response.json();
+
+    if (responseData && responseData.status === 'error' && responseData.msg) {
+      console.error('ToyyibPay returned error:', responseData.msg);
+      return res.status(400).json({ error: `ToyyibPay: ${responseData.msg}` });
+    }
 
     if (!responseData || !Array.isArray(responseData) || responseData.length === 0) {
       console.error('Invalid ToyyibPay response:', responseData);
