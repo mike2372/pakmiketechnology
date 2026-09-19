@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import ProjectGallery from './components/ProjectGallery';
-import ProjectTimeline from './components/ProjectTimeline';
 import About from './components/About';
 import MeetOurTeam from './components/MeetOurTeam';
 import Testimonials from './components/Testimonials';
@@ -51,7 +50,6 @@ const App: React.FC = () => {
           <ProjectGallery />
           <MeetOurTeam />
           <Services />
-          <ProjectTimeline />
           <YouTubeGallery />
           <Testimonials />
           <FAQ />

@@ -94,7 +94,7 @@ export const CONTACT: ContactInfo = {
   address: 'Penang / Prai Region, Malaysia',
   blog: 'https://hdcctvs.blogspot.com/',
   facebook: 'https://www.facebook.com/myintsolutions',
-  youtube: 'https://www.youtube.com/@Penangthecctvguy'
+  youtube: 'http://youtube.com/@Penangcctvguy'
 };
 
 export const MOCK_PRODUCTS: Product[] = [

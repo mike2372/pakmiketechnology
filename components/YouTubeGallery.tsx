@@ -39,6 +39,12 @@ const VIDEOS: Video[] = [
     title: 'Genius Mind Academy (GMA) Memoschool ',
     description: 'Deployment Of Hikvision Audio cameras.',
     youtubeUrl: 'https://www.youtube.com/watch?v=z0WQpgBjiXg'
+  },
+  {
+    id: '7',
+    title: 'Featured Short',
+    description: 'Check out this short video from our channel.',
+    youtubeUrl: 'https://youtube.com/shorts/ULFlIQ_wyBQ?feature=share'
   }
 ];
 

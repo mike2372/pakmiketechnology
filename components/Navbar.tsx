@@ -34,7 +34,6 @@ const Navbar: React.FC = () => {
             <a href="#home" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.home}</a>
             <a href="#services" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.services}</a>
             <a href="#projects" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.projects}</a>
-            <a href="#project-timeline" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.process}</a>
             <a href="#service-request" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.support}</a>
             <a href="#about" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.about}</a>
             <a href="#shop" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.shop}</a>
@@ -156,7 +155,6 @@ const Navbar: React.FC = () => {
             <a href="#home" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.home}</a>
             <a href="#services" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.services}</a>
             <a href="#projects" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.projects}</a>
-            <a href="#project-timeline" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.process}</a>
             <a href="#service-request" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.support}</a>
             <a href="#about" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.about}</a>
             <a href="#shop" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.shop}</a>
