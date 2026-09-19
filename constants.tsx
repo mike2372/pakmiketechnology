@@ -117,3 +117,38 @@ export const getIcon = (name: string) => {
     default: return <ShieldAlert className="w-8 h-8 text-cyan-600" />;
   }
 };
+
+export interface GalleryBannerImage {
+  src: string;
+  title?: string;
+  caption?: string;
+  link?: string;
+  hidden?: boolean;
+}
+
+export const GALLERY_BANNER_IMAGES: GalleryBannerImage[] = [
+  {
+    src: '/images/Caltex station surveillance system.WEBP.webp',
+    title: 'Caltex Lunas CCTV & Surveillance',
+    caption: 'Full multi-camera deployment & remote live-view monitoring complete',
+    link: '#projects'
+  },
+  {
+    src: '/images/caltex stations electrical works.png',
+    title: 'Industrial Electrical Installation',
+    caption: 'Sub-switchboard rewiring and compliant industrial distribution works',
+    link: '#projects'
+  },
+  {
+    src: '/images/Hikvision Biometric access control system.jpg',
+    title: 'Hikvision Biometric Access Control',
+    caption: 'Secure multi-door facial recognition & time attendance deployment',
+    link: '#projects'
+  },
+  {
+    src: '/images/dcmoto.webp',
+    title: 'Autogate Automation Solutions',
+    caption: 'Heavy-duty DCMoto gate motor and backup battery installation',
+    link: '#projects'
+  }
+];
