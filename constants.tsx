@@ -131,7 +131,7 @@ export const GALLERY_BANNER_IMAGES: GalleryBannerImage[] = [
     src: '/images/Caltex station surveillance system.WEBP.webp',
     title: 'Caltex Lunas CCTV & Surveillance',
     caption: 'Full multi-camera deployment & remote live-view monitoring complete',
-    link: '#projects'
+    link: 'https://hdcctvs.blogspot.com/p/project-caltex-stesen-minyak-lunas.html'
   },
   {
     src: '/images/caltex stations electrical works.png',

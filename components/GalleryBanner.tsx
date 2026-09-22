@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { GALLERY_BANNER_IMAGES, GalleryBannerImage } from '../constants';
@@ -137,6 +137,8 @@ export const GalleryBanner: React.FC = () => {
                     {currentSlide.link && (
                       <a
                         href={currentSlide.link}
+                        target={currentSlide.link.startsWith('http') ? '_blank' : undefined}
+                        rel={currentSlide.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                         className="inline-flex items-center gap-1.5 mt-3 text-xs sm:text-sm font-semibold text-cyan-300 hover:text-cyan-100 transition-colors group/link"
                       >
                         Explore Project Details
