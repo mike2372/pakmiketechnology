@@ -143,7 +143,7 @@ export const GALLERY_BANNER_IMAGES: GalleryBannerImage[] = [
     src: '/images/Hikvision Biometric access control system.jpg',
     title: 'Hikvision Biometric Access Control',
     caption: 'Secure multi-door facial recognition & time attendance deployment',
-    link: '#projects'
+    link: 'https://hdcctvs.blogspot.com/2026/05/project-showcase-5x-hikvision-access.html'
   },
   {
     src: '/images/dcmoto.webp',
