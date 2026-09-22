@@ -137,7 +137,7 @@ export const GALLERY_BANNER_IMAGES: GalleryBannerImage[] = [
     src: '/images/caltex stations electrical works.png',
     title: 'Industrial Electrical Installation',
     caption: 'Sub-switchboard rewiring and compliant industrial distribution works',
-    link: '#projects'
+    link: 'https://hdcctvs.blogspot.com/2025/10/blog-post.html'
   },
   {
     src: '/images/Hikvision Biometric access control system.jpg',
