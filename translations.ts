@@ -56,8 +56,8 @@ export const translations = {
         p4_desc: '3-Phase Wiring Overhaul & Safety Check',
         p5_title: 'Smart Ai Home/office security',
         p5_desc: 'Integrated Alarm & Mobile Monitoring',
-        p6_title: 'retail store security system',
-        p6_desc: 'LED Lighting & Power Point Distribution',
+        p6_title: 'Hikvision PIR & Siren Security Solution',
+        p6_desc: 'AI-powered Motion Detection & Audible Deterrent System',
       }
     },
     aiEditor: {
@@ -436,8 +436,8 @@ export const translations = {
         p4_desc: '三相电重新接线与安全检查',
         p5_title: '智能 AI 家居/办公室安防系统',
         p5_desc: '集成报警与手机远程监控',
-        p6_title: '零售店安防系统',
-        p6_desc: 'LED 照明与电源点布局',
+        p6_title: '海康威视 PIR 红外感应与警铃安防方案',
+        p6_desc: 'AI 智能人体移动侦测与声光震慑报警系统',
       }
     },
     aiEditor: {
@@ -816,8 +816,8 @@ export const translations = {
         p4_desc: 'Baik Pulih Pendawaian 3-Fasa & Pemeriksaan Keselamatan',
         p5_title: 'Keselamatan Rumah/Pejabat Pintar AI',
         p5_desc: 'Penggera Bersepadu & Pemantauan Mudah Alih',
-        p6_title: 'Sistem Keselamatan Kedai Runcit',
-        p6_desc: 'Lampu LED & Pengagihan Mata Kuasa (Power Point)',
+        p6_title: 'Penyelesaian Keselamatan Hikvision PIR & Siren',
+        p6_desc: 'Sistem Pengesahan Gerakan AI & Penggera Pencegahan Bunyi',
       }
     },
     aiEditor: {

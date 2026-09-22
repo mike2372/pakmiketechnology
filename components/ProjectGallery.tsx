@@ -53,9 +53,10 @@ const ProjectGallery: React.FC = () => {
     {
       id: 6,
       title: t.gallery.projects.p6_title,
-      category: 'wiring',
+      category: 'cctv',
       image: '/images/retail store security system.jpg',
-      desc: t.gallery.projects.p6_desc
+      desc: t.gallery.projects.p6_desc,
+      link: 'https://hdcctvs.blogspot.com/2026/03/the-best-hikvision-ai-pir-network.html'
     }
   ];
 
