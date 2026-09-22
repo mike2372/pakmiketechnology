@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 
 type Category = 'all' | 'cctv' | 'wiring' | 'access' | 'autogate';
 
@@ -16,7 +16,8 @@ const ProjectGallery: React.FC = () => {
       title: t.gallery.projects.p1_title,
       category: 'cctv',
       image: '/images/Caltex station surveillance system.WEBP.webp',
-      desc: t.gallery.projects.p1_desc
+      desc: t.gallery.projects.p1_desc,
+      link: 'https://hdcctvs.blogspot.com/p/project-caltex-stesen-minyak-lunas.html'
     },
     {
       id: 2,
@@ -30,21 +31,24 @@ const ProjectGallery: React.FC = () => {
       title: t.gallery.projects.p3_title,
       category: 'access',
       image: '/images/Hikvision Biometric access control system.jpg',
-      desc: t.gallery.projects.p3_desc
+      desc: t.gallery.projects.p3_desc,
+      link: 'https://hdcctvs.blogspot.com/2026/05/project-showcase-5x-hikvision-access.html'
     },
     {
       id: 4,
       title: t.gallery.projects.p4_title,
       category: 'wiring',
       image: '/images/caltex stations electrical works.png',
-      desc: t.gallery.projects.p4_desc
+      desc: t.gallery.projects.p4_desc,
+      link: 'https://hdcctvs.blogspot.com/2025/10/blog-post.html'
     },
     {
       id: 5,
       title: t.gallery.projects.p5_title,
       category: 'cctv',
       image: '/images/Smart Ai Homeoffice security.jpg',
-      desc: t.gallery.projects.p5_desc
+      desc: t.gallery.projects.p5_desc,
+      link: 'https://hdcctvs.blogspot.com/2026/03/completed-project-ezviz-h90-dual-is-4mp.html'
     },
     {
       id: 6,
@@ -167,9 +171,22 @@ const ProjectGallery: React.FC = () => {
                   <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
                   <p className="text-gray-300 text-sm mb-4 line-clamp-2">{project.desc}</p>
                   
-                  <div className="flex items-center gap-2 text-white font-bold text-sm">
-                    View Project <ArrowUpRight size={16} />
-                  </div>
+                  {project.link ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-2 text-white font-bold text-sm text-cyan-300 hover:text-cyan-100 transition-colors group/link"
+                    >
+                      View Project
+                      <ExternalLink size={16} className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                    </a>
+                  ) : (
+                    <div className="flex items-center gap-2 text-white font-bold text-sm">
+                      View Project <ArrowUpRight size={16} />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -247,10 +264,23 @@ const ProjectGallery: React.FC = () => {
               <p className="text-gray-300 text-sm md:text-base font-medium leading-relaxed">
                 {filteredProjects[activeIndex].desc}
               </p>
-              <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-cyan-400">
-                <span>{activeIndex + 1}</span>
-                <span className="text-white/40">/</span>
-                <span>{filteredProjects.length}</span>
+              <div className="mt-4 flex items-center justify-center flex-wrap gap-3">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-cyan-400">
+                  <span>{activeIndex + 1}</span>
+                  <span className="text-white/40">/</span>
+                  <span>{filteredProjects.length}</span>
+                </div>
+                {filteredProjects[activeIndex].link && (
+                  <a
+                    href={filteredProjects[activeIndex].link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-cyan-500/90 hover:bg-cyan-400 text-white text-xs font-bold transition-colors border border-cyan-400/50 shadow-lg shadow-cyan-500/20"
+                  >
+                    View Full Project Details
+                    <ExternalLink size={14} />
+                  </a>
+                )}
               </div>
             </div>
           </div>
