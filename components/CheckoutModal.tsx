@@ -9,7 +9,7 @@ interface CheckoutModalProps {
   onCheckout: (data: CheckoutData) => void;
 }
 
-const DIRECT_INSTALLER_POSTCODES = ['14100', '14000', '11900', '13600'];
+const DIRECT_INSTALLER_POSTCODES = ['14100', '14000', '14120'];
 
 const FULFILLMENT_OPTIONS = [
   {

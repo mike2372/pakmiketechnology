@@ -149,7 +149,7 @@ function MyComponent() {
   - Self-Pickup (FREE)
   - Direct Installer Delivery (RM30.00)
 - **Postcode Validation:**
-  - Direct Installer Delivery only available for postcodes: 14100, 14000, 11900, 13600
+  - Direct Installer Delivery only available for postcodes: 14100, 14000, 14120
   - Automatic validation with inline error messages
 - **Form Fields:**
   - Full Name, Email, Phone, Address
@@ -285,7 +285,7 @@ const FULFILLMENT_OPTIONS = [
 Edit `DIRECT_INSTALLER_POSTCODES` in `CheckoutModal.tsx`:
 
 ```tsx
-const DIRECT_INSTALLER_POSTCODES = ['14100', '14000', '11900', '13600'];
+const DIRECT_INSTALLER_POSTCODES = ['14100', '14000', '14120'];
 ```
 
 ### Add Custom Cart Item Fields

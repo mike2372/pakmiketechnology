@@ -7,7 +7,7 @@ import { CheckoutData } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const ShopPage: React.FC = () => {
-  const { cart, isCartOpen, openCart, closeCart, getCartSubtotal, getCartItemCount, clearCart } = useCart();
+  const { cart, isCartOpen, openCart, closeCart, getCartSubtotal, getCartItemCount, clearCart, updateQuantity, removeFromCart } = useCart();
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   const handleCheckout = async (data: CheckoutData) => {
@@ -96,9 +96,36 @@ export const ShopPage: React.FC = () => {
                             {item.description && (
                               <p className="text-xs text-gray-500 mt-1">{item.description}</p>
                             )}
-                            <p className="text-sm font-medium text-cyan-600 mt-1">
-                              Qty: {item.quantity}
-                            </p>
+                            <div className="flex items-center gap-3 mt-2">
+                              <div className="flex items-center border border-gray-300 rounded bg-white">
+                                <button
+                                  type="button"
+                                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                  className="w-6 h-6 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-l text-xs font-bold"
+                                  aria-label="Decrease quantity"
+                                >
+                                  -
+                                </button>
+                                <span className="w-6 text-center text-xs font-semibold text-gray-800">
+                                  {item.quantity}
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                  className="w-6 h-6 flex items-center justify-center text-gray-600 hover:bg-gray-100 rounded-r text-xs font-bold"
+                                  aria-label="Increase quantity"
+                                >
+                                  +
+                                </button>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => removeFromCart(item.id)}
+                                className="text-xs text-red-500 hover:text-red-700 transition-colors"
+                              >
+                                Remove
+                              </button>
+                            </div>
                           </div>
                           <div className="text-right">
                             <p className="font-bold text-gray-800">
