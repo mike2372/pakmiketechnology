@@ -32,6 +32,9 @@ const Navbar: React.FC = () => {
 
           <div className="hidden md:flex items-center space-x-8">
             <a href="#home" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.home}</a>
+            <a href="#promo" className={`${scrolled ? 'text-amber-600' : 'text-amber-400'} hover:text-amber-500 font-bold transition-colors flex items-center gap-1`}>
+              <span>🔥</span> Promo
+            </a>
             <a href="#services" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.services}</a>
             <a href="#projects" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.projects}</a>
             <a href="#service-request" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.support}</a>
@@ -153,6 +156,9 @@ const Navbar: React.FC = () => {
         <div className="md:hidden bg-white shadow-2xl absolute top-full left-0 w-full animate-in slide-in-from-top duration-300">
           <div className="px-4 pt-2 pb-6 space-y-1 sm:px-3 flex flex-col items-center text-center">
             <a href="#home" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.home}</a>
+            <a href="#promo" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-amber-600 text-lg font-bold border-b w-full flex items-center justify-center gap-1.5 bg-amber-50/60">
+              <span>🔥</span> Monthly SME Promo
+            </a>
             <a href="#services" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.services}</a>
             <a href="#projects" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.projects}</a>
             <a href="#service-request" onClick={() => setIsOpen(false)} className="block px-3 py-4 text-gray-800 text-lg font-bold border-b w-full">{t.nav.support}</a>

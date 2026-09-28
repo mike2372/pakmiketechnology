@@ -17,6 +17,7 @@ import { LanguageProvider } from './context/LanguageContext';
 import { CartProvider } from './context/CartContext';
 import { ShopSection } from './components/ShopSection';
 import { PaymentSuccess } from './components/PaymentSuccess';
+import MonthlyPromoSection from './components/MonthlyPromoSection';
 
 const App: React.FC = () => {
   const [isPaymentSuccess, setIsPaymentSuccess] = useState(false);
@@ -47,6 +48,7 @@ const App: React.FC = () => {
         <div className="min-h-screen bg-white">
           <Navbar />
           <Hero />
+          <MonthlyPromoSection />
           <About />
           <GalleryBanner />
           <ProjectGallery />
