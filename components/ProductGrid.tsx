@@ -78,7 +78,7 @@ export const ProductGrid: React.FC = () => {
                 {product.name}
               </h3>
               
-              <p className="text-gray-600 text-sm mb-3 line-clamp-2 h-10">
+              <p className="text-gray-600 text-sm mb-3 line-clamp-3 h-[60px]">
                 {product.description}
               </p>
               
