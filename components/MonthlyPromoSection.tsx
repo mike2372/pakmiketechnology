@@ -60,7 +60,7 @@ We use back your existing compatible door locks and wiring, making this a quick,
 
 🏷️ Exclusive SME Promo: From only RM699!
 🛡️ Extended Protection: Comes with a solid 2-Year Warranty!
-📦 Package includes: Terminal upgrade, integration with existing locks, and system setup.
+📦 Package includes: Terminal upgrade, integration with your existing locks, and system setup.
 
 📲 Secure your facility today! WhatsApp: https://wa.me/60175162938
 
