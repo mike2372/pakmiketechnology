@@ -334,7 +334,7 @@ We use back your existing compatible door locks and wiring, making this a quick,
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-cyan-400 shrink-0" />
-                    <span>Integrates with electromagnetic locks & exit buttons</span>
+                    <span>Integrates with your existing electromagnetic locks & exit buttons</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="w-4 h-4 text-cyan-400 shrink-0" />
