@@ -97,24 +97,7 @@ We use back your existing compatible door locks and wiring, making this a quick,
             </span>
           </div>
 
-          {/* Quick Copy Post Button */}
-          <button
-            onClick={handleCopyPost}
-            className="inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-white bg-slate-800/80 hover:bg-slate-700 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors cursor-pointer"
-            title="Copy promo post text"
-          >
-            {copied ? (
-              <>
-                <Check className="w-3.5 h-3.5 text-green-400" />
-                <span className="text-green-400 font-medium">Copied Post!</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-3.5 h-3.5" />
-                <span>Copy Post Text</span>
-              </>
-            )}
-          </button>
+
         </div>
 
         {/* Main Content Card */}
