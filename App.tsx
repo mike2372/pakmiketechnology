@@ -18,6 +18,7 @@ import { CartProvider } from './context/CartContext';
 import { ShopSection } from './components/ShopSection';
 import { PaymentSuccess } from './components/PaymentSuccess';
 import MonthlyPromoSection from './components/MonthlyPromoSection';
+import ClientLogos from './components/ClientLogos';
 
 const App: React.FC = () => {
   const [isPaymentSuccess, setIsPaymentSuccess] = useState(false);
@@ -56,6 +57,7 @@ const App: React.FC = () => {
           <Services />
           <YouTubeGallery />
           <Testimonials />
+          <ClientLogos />
           <FAQ />
           <Contact />
           <section id="shop" className="py-16 bg-gray-50">
