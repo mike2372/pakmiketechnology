@@ -119,7 +119,7 @@ We use back your existing compatible door locks and wiring, making this a quick,
                 <span className="text-slate-400 text-sm font-semibold uppercase tracking-wider">From Only</span>
                 <span className="text-3xl sm:text-4xl font-extrabold text-amber-400">RM699</span>
                 <span className="px-2.5 py-0.5 text-xs font-bold bg-amber-400/20 text-amber-300 rounded border border-amber-400/30">
-                  Full Upgrade Package
+                  Full Upgarde Of Your exiting Standalone Reader/terminal
                 </span>
               </div>
             </div>
