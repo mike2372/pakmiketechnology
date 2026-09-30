@@ -62,6 +62,22 @@ const clientLogos: ClientLogo[] = [
     alt: 'Client 14',
     src: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCvzv9wFmxJvxJ8iWnjA4LVLoGbZ_rKd1tbF2x2Fy39FDni6DHTAjxhJ6EDMixUTP2527eSBV-L9OYCyoRK8m9MaEhZdMB0EdS9qJPppTOWi3VRi4-9dy1Pxe07fYXDZx2zQNG_6wi2CIVwI4VHPch8NReFM7mVBndu8tUmT0zTyvqlcYtRdBxpE0Lc28/s1600/images%20(5).png',
   },
+  {
+    alt: 'Client 15',
+    src: '/images/images (2).jpg',
+  },
+  {
+    alt: 'Client 16',
+    src: '/images/images.jpg',
+  },
+  {
+    alt: 'Client 17',
+    src: '/images/images (1).jpg',
+  },
+  {
+    alt: 'Client 18',
+    src: '/images/279903880_1457550891364789_8008919804337999575_n.jpg',
+  },
 ];
 
 export const ClientLogos: React.FC = () => {
