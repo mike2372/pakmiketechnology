@@ -81,7 +81,7 @@ export const ClientLogos: React.FC = () => {
                 src={logo.src}
                 alt={logo.alt}
                 loading="lazy"
-                className="max-w-full h-auto max-h-[100px] object-contain grayscale opacity-70 transition-all duration-300 ease-in-out hover:grayscale-0 hover:opacity-100"
+                className="max-w-full h-auto max-h-[100px] object-contain transition-transform duration-200 hover:scale-105"
                 onError={(e) => {
                   e.currentTarget.style.visibility = 'hidden';
                 }}
