@@ -15,9 +15,15 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           <div className="col-span-1 lg:col-span-1">
-            <span className="text-3xl font-black tracking-tighter mb-8 block text-gray-900">
-              PAKMIKE<span className="text-cyan-500">TECH</span>
-            </span>
+            <img
+              src="/images/logo.png.png"
+              alt="Pak Mike Technology"
+              className="h-32 w-auto object-contain mb-6"
+              onError={(e) => {
+                e.currentTarget.outerHTML =
+                  '<span class="text-3xl font-black tracking-tighter mb-8 block text-gray-900">PAKMIKE<span class="text-cyan-500">TECH</span></span>';
+              }}
+            />
             <p className="text-gray-500 mb-10 leading-relaxed font-medium">
               {t.footer.description}
             </p>
@@ -72,7 +78,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-50 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-gray-400 text-sm font-bold">
-            © {new Date().getFullYear()} PAKMIKE TECHNOLOGY. DESIGNED FOR PRECISION.
+            © {new Date().getFullYear()} PAKMIKE TECHNOLOGY (003717911-V). ALL RIGHTS RESERVED. DESIGNED FOR PRECISION.
           </p>
           <button 
             onClick={scrollToTop}

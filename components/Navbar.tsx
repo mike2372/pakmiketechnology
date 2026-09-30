@@ -8,6 +8,7 @@ import { useCart } from '../context/CartContext';
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logoError, setLogoError] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   const { getCartItemCount, openCart } = useCart();
   const [, setMobileCartOpen] = useState(false);
@@ -21,14 +22,39 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-transparent py-3'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <span className={`text-2xl font-black tracking-tighter ${scrolled ? 'text-gray-900' : 'text-white'}`}>
-              PAKMIKE<span className="text-cyan-500">TECH</span>
-            </span>
-          </div>
+          <a href="#home" className="flex items-center gap-3 group">
+            {!logoError ? (
+              <span
+                className={`inline-flex items-center px-3 py-1.5 rounded-2xl transition-all duration-300 ${
+                  scrolled
+                    ? 'bg-transparent'
+                    : 'bg-white/90 backdrop-blur-md shadow-md shadow-black/10 border border-white/50'
+                }`}
+              >
+                <img
+                  src="/assets/pakmike-logo.png"
+                  alt="Pak Mike Technology Logo"
+                  className="h-14 sm:h-20 w-auto object-contain transition-transform group-hover:scale-105"
+                  onError={() => setLogoError(true)}
+                />
+              </span>
+            ) : (
+              <span
+                className={`inline-flex items-center px-3 py-2 rounded-2xl transition-all duration-300 ${
+                  scrolled
+                    ? 'bg-transparent'
+                    : 'bg-white/90 backdrop-blur-md shadow-md shadow-black/10 border border-white/50'
+                }`}
+              >
+                <span className={`text-2xl font-black tracking-tighter ${scrolled ? 'text-gray-900' : 'text-slate-900'}`}>
+                  PAKMIKE<span className="text-cyan-500">TECH</span>
+                </span>
+              </span>
+            )}
+          </a>
 
           <div className="hidden md:flex items-center space-x-8">
             <a href="#home" className={`${scrolled ? 'text-gray-600' : 'text-white/90'} hover:text-cyan-500 font-bold transition-colors`}>{t.nav.home}</a>
