@@ -48,4 +48,6 @@ export interface CheckoutData {
   address: string;
   fulfillmentMethod: FulfillmentMethod;
   postcode?: string;
+  installationDate?: string;
+  installationTimeSlot?: 'morning' | 'afternoon';
 }

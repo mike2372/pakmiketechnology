@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-white">
+    <section id="home" className="relative min-h-screen flex items-center pt-[var(--navbar-h,5rem)] overflow-hidden bg-white">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-full h-full opacity-20 pointer-events-none">
          <div className="absolute -top-24 -right-24 w-[600px] h-[600px] bg-cyan-400 rounded-full blur-[120px]"></div>

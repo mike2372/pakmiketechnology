@@ -76,6 +76,27 @@ const FULFILLMENT_OPTIONS_INSTALLATION = [
   },
 ];
 
+const TIME_SLOT_OPTIONS: Array<{ id: 'morning' | 'afternoon'; name: string; window: string }> = [
+  { id: 'morning', name: 'Morning', window: '9:00 AM – 1:00 PM' },
+  { id: 'afternoon', name: 'Afternoon', window: '2:00 PM – 6:00 PM' },
+];
+
+const pad2 = (n: number) => n.toString().padStart(2, '0');
+const toISODate = (d: Date) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+
+const getMinInstallationDate = (): string => {
+  const d = new Date();
+  d.setDate(d.getDate() + 2);
+  return toISODate(d);
+};
+
+const isSunday = (isoDate: string): boolean => {
+  if (!isoDate) return false;
+  const [y, m, day] = isoDate.split('-').map(Number);
+  const d = new Date(y, m - 1, day);
+  return d.getDay() === 0;
+};
+
 export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, onCheckout }) => {
   const { cart, getCartSubtotal, clearCart } = useCart();
 
@@ -97,9 +118,12 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
     address: '',
     fulfillmentMethod: defaultFulfillmentMethod,
     postcode: '',
+    installationDate: '',
+    installationTimeSlot: undefined,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [postcodeError, setPostcodeError] = useState('');
+  const [installationError, setInstallationError] = useState('');
 
   if (!isOpen) return null;
 
@@ -109,9 +133,29 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
     ? formData.fulfillmentMethod
     : defaultFulfillmentMethod;
 
+  const minInstallationDate = getMinInstallationDate();
+
+  const installationFieldRequired = hasInstallationProduct;
+
   const validatePostcode = (postcode: string): boolean => {
     if (activeFulfillmentMethod !== 'direct_installer') return true;
     return DIRECT_INSTALLER_POSTCODES.includes(postcode);
+  };
+
+  const validateInstallation = (): { ok: boolean; error?: string } => {
+    const { installationDate, installationTimeSlot } = formData;
+    if (!installationFieldRequired) return { ok: true };
+    if (!installationDate) return { ok: false, error: '⚠️ Please pick your preferred installation date.' };
+    if (installationDate < minInstallationDate) {
+      return { ok: false, error: '⚠️ Earliest available installation is 2 working days from today. Please pick a later date.' };
+    }
+    if (isSunday(installationDate)) {
+      return { ok: false, error: '⚠️ No installations available on Sundays. Please pick a different date.' };
+    }
+    if (!installationTimeSlot) {
+      return { ok: false, error: '⚠️ Please select a time slot (Morning or Afternoon).' };
+    }
+    return { ok: true };
   };
 
   const calculateTotal = () => {
@@ -128,6 +172,9 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
     if (name === 'postcode' || name === 'fulfillmentMethod') {
       setPostcodeError('');
     }
+    if (name === 'installationDate' || name === 'installationTimeSlot') {
+      setInstallationError('');
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -138,6 +185,12 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
         setPostcodeError('⚠️ Sorry! Postcode outside our designated installation/delivery area.');
         return;
       }
+    }
+
+    const installCheck = validateInstallation();
+    if (!installCheck.ok) {
+      setInstallationError(installCheck.error || '⚠️ Please complete the installation details.');
+      return;
     }
 
     setIsSubmitting(true);
@@ -177,7 +230,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
   };
 
   const isCheckoutDisabled = isSubmitting || 
-    (activeFulfillmentMethod === 'direct_installer' && !validatePostcode(formData.postcode || ''));
+    (activeFulfillmentMethod === 'direct_installer' && !validatePostcode(formData.postcode || '')) ||
+    (installationFieldRequired && !validateInstallation().ok);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60] p-4">
@@ -332,6 +386,83 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
                     Available postcodes: {DIRECT_INSTALLER_POSTCODES.join(', ')}
                   </p>
                 </div>
+              )}
+            </div>
+
+            {/* Installation Date & Time Slot - always visible, optional for DIY / required for installs */}
+            <div className="space-y-4 mb-6">
+              <h3 className="font-semibold flex items-center gap-2">
+                <span>📅</span>
+                Pick Your Installation Date
+                {!installationFieldRequired && (
+                  <span className="text-xs font-normal text-gray-400 ml-1">(optional for DIY)</span>
+                )}
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className={`block text-sm font-medium mb-1`}>
+                    Preferred Date
+                    {installationFieldRequired && <span className="text-red-500 ml-1">*</span>}
+                  </label>
+                  <input
+                    type="date"
+                    name="installationDate"
+                    min={minInstallationDate}
+                    value={formData.installationDate || ''}
+                    onChange={handleInputChange}
+                    required={installationFieldRequired}
+                    className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                      installationError ? 'border-red-500 focus:ring-red-500' : 'focus:ring-blue-500'
+                    }`}
+                    disabled={isSubmitting}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-1">
+                    Time Slot
+                    {installationFieldRequired && <span className="text-red-500 ml-1">*</span>}
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {TIME_SLOT_OPTIONS.map(slot => (
+                      <label
+                        key={slot.id}
+                        className={`flex flex-col items-start p-2.5 border rounded-lg cursor-pointer transition-colors ${
+                          formData.installationTimeSlot === slot.id
+                            ? 'border-cyan-500 bg-cyan-50'
+                            : 'border-gray-200 hover:border-gray-300'
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="installationTimeSlot"
+                          value={slot.id}
+                          checked={formData.installationTimeSlot === slot.id}
+                          onChange={handleInputChange}
+                          className="sr-only"
+                          disabled={isSubmitting}
+                        />
+                        <span className="font-semibold text-sm">{slot.name}</span>
+                        <span className="text-xs text-gray-500">{slot.window}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <ul className="text-xs text-gray-500 space-y-0.5 list-disc pl-5">
+                <li>Earliest available date = <strong className="text-gray-700">2 days</strong> from today (minimum lead time).</li>
+                <li>No installations available on <strong className="text-gray-700">Sundays</strong>.</li>
+                {installationFieldRequired ? (
+                  <li>Both <strong className="text-gray-700">date + time slot</strong> are required before payment.</li>
+                ) : (
+                  <li>Optional for DIY products — leave blank if you don't need installation help.</li>
+                )}
+              </ul>
+
+              {installationError && (
+                <p className="text-red-500 text-sm mt-1">{installationError}</p>
               )}
             </div>
 

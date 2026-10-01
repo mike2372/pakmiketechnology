@@ -48,7 +48,7 @@ export const ShopSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <div>
           <h2 className="text-3xl font-bold text-gray-800 mb-2">Security Shop</h2>
-          <p className="text-gray-600">Choose your product, pick an installation date at checkout, and our team arrives fully equipped to do the job.</p>
+          <p className="text-gray-600">Choose your installation packages, pick an installation date at checkout, and our team will liaise with you ASAP.</p>
         </div>
       </div>
 

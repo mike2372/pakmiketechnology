@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Phone, Globe, ShoppingCart } from 'lucide-react';
 import { CONTACT } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
@@ -12,6 +12,7 @@ const Navbar: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const { getCartItemCount, openCart } = useCart();
   const [, setMobileCartOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,8 +22,30 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const el = navRef.current;
+    if (!el) return;
+    const root = document.documentElement;
+    const update = () => {
+      const h = el.getBoundingClientRect().height;
+      root.style.setProperty('--navbar-h', `${h}px`);
+    };
+    update();
+    let ro: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== 'undefined') {
+      ro = new ResizeObserver(update);
+      ro.observe(el);
+    }
+    window.addEventListener('resize', update);
+    return () => {
+      if (ro) ro.disconnect();
+      window.removeEventListener('resize', update);
+      root.style.removeProperty('--navbar-h');
+    };
+  }, []);
+
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-transparent py-3'}`}>
+    <nav ref={navRef} className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-transparent py-3'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <a href="#home" className="flex items-center gap-3 group">
