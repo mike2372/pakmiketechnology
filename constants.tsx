@@ -100,16 +100,23 @@ export const CONTACT: ContactInfo = {
 export const MOCK_PRODUCTS: Product[] = [
   {
     id: 'ds-k1t323-face-recognition',
-    name: 'DS-k1T323 Series Face Recognition Terminal',
+    name: 'DS-K1T323EBWX-E1 Face Recognition Terminal (standalone Door access reader/terminal only without installation)',
     price: 507.00,
-    description: '2.4" LCD Touchscreen Display. IP65 Weatherproof Rating. Fast & Secure Face Recognition. Fingerprint & Mifare Card Support. Reliable Value Series Performance.',
+    description: 'Model DS-K1T323EBWX-E1. Buy this premium terminal & install it on your own. 2 years warranty included.',
     image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXdozt9DTR9JkbDAUH1LeVCRgiChbrxEJuVFljPbkPsIJz1u2Ikg8Psb8cva4NzRrCGx-PF0I3OtAV0H-z7PBT3X11NhO6R3L0xU8H1IEJL6Pi8FwoHH5DlqihKf62cq2HLsIEJ2TYEJ_WcFxNpEQqAq5apvquJth8HIc4dK9IaCa6aSHs_pHNR-_CVUk/s1280-rw/maxresdefault.jpg'
   },
   {
     id: 'ds-k1t323-existing-terminal-upgrading',
-    name: 'DS-k1T323 Series Face Recognition Terminal',
+    name: 'DS-K1T323EBWX-E1 Face Recognition Terminal (standalone Door access reader/terminal only with installation)',
     price: 699.00,
-    description: 'Existing terminal upgrading. Exclusively for SIMPANG AMPAT & BATU KAWAN SMEs',
+    description: 'Model DS-K1T323EBWX-E1. Installation included for upgrading your existing reader only. Exclusively for SIMPANG AMPAT & BATU KAWAN SMEs',
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXdozt9DTR9JkbDAUH1LeVCRgiChbrxEJuVFljPbkPsIJz1u2Ikg8Psb8cva4NzRrCGx-PF0I3OtAV0H-z7PBT3X11NhO6R3L0xU8H1IEJL6Pi8FwoHH5DlqihKf62cq2HLsIEJ2TYEJ_WcFxNpEQqAq5apvquJth8HIc4dK9IaCa6aSHs_pHNR-_CVUk/s1280-rw/maxresdefault.jpg'
+  },
+  {
+    id: 'ds-k1t323-full-installation',
+    name: 'DS-K1T323EBWX-E1 Face Recognition Terminal (Full installation package)',
+    price: 1099.00,
+    description: 'Model DS-K1T323EBWX-E1. Full installation with reader/emlock/exit button/3A power supply/software configuration by our technical team.',
     image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXdozt9DTR9JkbDAUH1LeVCRgiChbrxEJuVFljPbkPsIJz1u2Ikg8Psb8cva4NzRrCGx-PF0I3OtAV0H-z7PBT3X11NhO6R3L0xU8H1IEJL6Pi8FwoHH5DlqihKf62cq2HLsIEJ2TYEJ_WcFxNpEQqAq5apvquJth8HIc4dK9IaCa6aSHs_pHNR-_CVUk/s1280-rw/maxresdefault.jpg'
   }
 ];

@@ -9,9 +9,44 @@ interface CheckoutModalProps {
   onCheckout: (data: CheckoutData) => void;
 }
 
-const DIRECT_INSTALLER_POSTCODES = ['14100', '14000', '14120'];
+const DIRECT_INSTALLER_POSTCODES = [
+  '12000',
+  '12100',
+  '12200',
+  '12300',
+  '12700',
+  '12710',
+  '12720',
+  '12900',
+  '13000',
+  '13009',
+  '13020',
+  '13050',
+  '13400',
+  '13409',
+  '13600',
+  '13700',
+  '13800',
+  '14000',
+  '14400',
+  '14007',
+  '14009',
+  '14020',
+  '14100',
+  '14110',
+  '14120',
+  '14200',
+  '14300',
+  '14310',
+  '14320',
+];
 
-const FULFILLMENT_OPTIONS = [
+const INSTALLATION_PRODUCT_IDS = [
+  'ds-k1t323-existing-terminal-upgrading',
+  'ds-k1t323-full-installation',
+];
+
+const FULFILLMENT_OPTIONS_DEFAULT = [
   {
     id: 'standard_courier' as FulfillmentMethod,
     name: 'Standard Courier Shipping',
@@ -32,14 +67,35 @@ const FULFILLMENT_OPTIONS = [
   },
 ];
 
+const FULFILLMENT_OPTIONS_INSTALLATION = [
+  {
+    id: 'direct_installer' as FulfillmentMethod,
+    name: 'Direct Installer Delivery',
+    description: 'Waived for installation packages — included in price',
+    price: 0.00,
+  },
+];
+
 export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, onCheckout }) => {
   const { cart, getCartSubtotal, clearCart } = useCart();
+
+  const hasInstallationProduct = cart.some(item =>
+    INSTALLATION_PRODUCT_IDS.includes(item.id)
+  );
+
+  const fulfillmentOptions = hasInstallationProduct
+    ? FULFILLMENT_OPTIONS_INSTALLATION
+    : FULFILLMENT_OPTIONS_DEFAULT;
+
+  const defaultFulfillmentMethod: FulfillmentMethod =
+    fulfillmentOptions[0]?.id ?? 'standard_courier';
+
   const [formData, setFormData] = useState<CheckoutData>({
     name: '',
     email: '',
     phone: '',
     address: '',
-    fulfillmentMethod: 'standard_courier',
+    fulfillmentMethod: defaultFulfillmentMethod,
     postcode: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,14 +103,20 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
 
   if (!isOpen) return null;
 
+  const activeFulfillmentMethod = fulfillmentOptions.some(
+    opt => opt.id === formData.fulfillmentMethod
+  )
+    ? formData.fulfillmentMethod
+    : defaultFulfillmentMethod;
+
   const validatePostcode = (postcode: string): boolean => {
-    if (formData.fulfillmentMethod !== 'direct_installer') return true;
+    if (activeFulfillmentMethod !== 'direct_installer') return true;
     return DIRECT_INSTALLER_POSTCODES.includes(postcode);
   };
 
   const calculateTotal = () => {
     const subtotal = getCartSubtotal();
-    const selectedFulfillment = FULFILLMENT_OPTIONS.find(opt => opt.id === formData.fulfillmentMethod);
+    const selectedFulfillment = fulfillmentOptions.find(opt => opt.id === activeFulfillmentMethod);
     const fulfillmentFee = selectedFulfillment?.price || 0;
     return subtotal + fulfillmentFee;
   };
@@ -71,19 +133,23 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (formData.fulfillmentMethod === 'direct_installer') {
+    if (activeFulfillmentMethod === 'direct_installer') {
       if (!validatePostcode(formData.postcode || '')) {
-        setPostcodeError('⚠️ Sorry! Postcode outside our designated installation/delivery area. Please choose standard courier or self-pickup.');
+        setPostcodeError('⚠️ Sorry! Postcode outside our designated installation/delivery area.');
         return;
       }
     }
 
     setIsSubmitting(true);
     try {
-      // Create ToyyibPay bill
+      const checkoutPayload: CheckoutData = {
+        ...formData,
+        fulfillmentMethod: activeFulfillmentMethod,
+      };
+
       const total = calculateTotal();
       const paymentResponse = await createToyyibPayBill(
-        formData,
+        checkoutPayload,
         cart,
         total
       );
@@ -94,10 +160,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
         return;
       }
 
-      // Call the original checkout handler for any additional processing
-      await onCheckout(formData);
+      await onCheckout(checkoutPayload);
       
-      // Redirect to ToyyibPay
       if (paymentResponse.billCode) {
         redirectToToyyibPay(paymentResponse.billCode);
       }
@@ -113,7 +177,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
   };
 
   const isCheckoutDisabled = isSubmitting || 
-    (formData.fulfillmentMethod === 'direct_installer' && !validatePostcode(formData.postcode || ''));
+    (activeFulfillmentMethod === 'direct_installer' && !validatePostcode(formData.postcode || ''));
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60] p-4">
@@ -147,8 +211,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
               <span>RM{getCartSubtotal().toFixed(2)}</span>
             </div>
             <div className="flex justify-between py-2">
-              <span>{FULFILLMENT_OPTIONS.find(opt => opt.id === formData.fulfillmentMethod)?.name}</span>
-              <span>RM{(FULFILLMENT_OPTIONS.find(opt => opt.id === formData.fulfillmentMethod)?.price || 0).toFixed(2)}</span>
+              <span>{fulfillmentOptions.find(opt => opt.id === activeFulfillmentMethod)?.name}</span>
+              <span>RM{(fulfillmentOptions.find(opt => opt.id === activeFulfillmentMethod)?.price || 0).toFixed(2)}</span>
             </div>
             <div className="flex justify-between py-2 text-lg font-bold border-t">
               <span>Total</span>
@@ -214,11 +278,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
             <div className="space-y-4 mb-6">
               <h3 className="font-semibold">Fulfillment Method</h3>
               <div className="space-y-3">
-                {FULFILLMENT_OPTIONS.map(option => (
+                {fulfillmentOptions.map(option => (
                   <label
                     key={option.id}
                     className={`flex items-center p-4 border rounded-lg cursor-pointer transition-colors ${
-                      formData.fulfillmentMethod === option.id
+                      activeFulfillmentMethod === option.id
                         ? 'border-blue-500 bg-blue-50'
                         : 'border-gray-200 hover:border-gray-300'
                     }`}
@@ -227,7 +291,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
                       type="radio"
                       name="fulfillmentMethod"
                       value={option.id}
-                      checked={formData.fulfillmentMethod === option.id}
+                      checked={activeFulfillmentMethod === option.id}
                       onChange={handleInputChange}
                       className="mr-3"
                       disabled={isSubmitting}
@@ -244,7 +308,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose, o
               </div>
 
               {/* Postcode validation for Direct Installer Delivery */}
-              {formData.fulfillmentMethod === 'direct_installer' && (
+              {activeFulfillmentMethod === 'direct_installer' && (
                 <div>
                   <label className="block text-sm font-medium mb-1">Postcode *</label>
                   <input
